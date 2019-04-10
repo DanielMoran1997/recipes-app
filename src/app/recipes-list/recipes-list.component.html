@@ -1,0 +1,40 @@
+<title>Sligo Sounds - Events</title>
+
+
+<!--Main content feed-->
+<div class='card'>
+<div *ngFor='let matches of data.matches'>
+
+
+<img  src="{{matches.smallImageUrls}}" alt="event-img">
+<div class="recipes">
+<h2><a class="link" routerLink='{{ matches.id }}'>{{matches.recipeName}}</a></h2>
+<h4>Ingredients:</h4> <p>{{matches.ingredients}}</p>
+</div> 
+
+
+</div>
+</div>
+<hr>
+
+<section class="section is-primary hero-image">
+    <div class="container">
+      <div class="column is-8 is-offset-2">
+        <form>
+          <div class="field is-grouped main-form">
+            <div class="control is-expanded">
+              <input type="search" id="searchTerm" name="searchTerm" placeholder="Search for a recipe.." >
+            </div>
+            <div class="control">
+              <button class="button is-info" (click)="getSearchResults()" type="submit">Search</button>
+            </div>
+  
+          </div>
+        
+        </form>
+      </div>
+    </div>
+  
+  </section>
+  
+  

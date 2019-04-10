@@ -1,0 +1,24 @@
+button{
+    margin: 5px;
+    border: 2px solid rgb(179, 80, 80);
+    font-family: graffiti;
+    font-size: 100%;
+    color: rgb(24, 24, 24);
+    text-align: center;
+    display: block;
+    
+}
+h1{
+    font-family: graffiti;
+    font-size: 32px;
+    text-align: center;
+    width: auto;
+    display: block;
+    float: none;
+    
+}
+mat-toolbar{
+    font-family: graffiti;
+    background-color: rgb(145, 85, 85);
+    text-align: center;
+}

@@ -1,0 +1,121 @@
+
+
+.main-card {
+    background-image: url('https://st.depositphotos.com/2007501/4502/i/950/depositphotos_45028393-stock-photo-red-and-white-checkered-picnic.jpg');
+    height: auto;
+    width: 100%;
+}
+
+
+
+.form-control {
+    min-height: 41px;
+    background: #fff;
+    box-shadow: none !important;
+    border-color: #e3e3e3;
+}
+.form-control:focus {
+    border-color: #70c5c0;
+}
+.form-control, .btn {        
+    border-radius: 2px;
+}
+.login-form-1 {
+    width: 40%;
+    float: left;
+    background-color: rgb(85, 12, 63);    
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.login-form-2 {
+    width: 40%;
+    
+    float: right;	
+    background-color: rgb(85, 12, 63);		
+	
+}
+
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: rgb(56, 5, 48);
+    width: auto;
+
+  }
+
+.login-form-1 form,
+.login-form-2 form {
+    color: #7a7a7a;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    background: #ececec;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;	
+    position: relative;	
+}
+.login-form-1 h2,
+.login-form-2 h2 {
+    font-size: 22px;
+    margin: 35px 0 25px;
+}
+.login-form-1 .avatar,
+.login-form-2 .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -50px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #70c5c0;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.login-form-1 .avatar img,
+.login-form-2 .avatar img {
+    width: 100%;
+}	
+.login-form-1 input[type="checkbox"],
+.login-form-2 input[type="checkbox"] {
+    margin-top: 2px;
+}
+.login-form-1 .btn,
+.login-form-2 .btn {        
+    font-size: 16px;
+    font-weight: bold;
+    background: #70c5c0;
+    border: none;
+    margin-bottom: 20px;
+}
+.login-form-1 .btn:hover, .login-form .btn:focus,
+.login-form-2 .btn:hover, .login-form .btn:focus {
+    background: #50b8b3;
+    outline: none !important;
+}    
+.login-form-1 a,
+.login-form-2 a {
+    color: #fff;
+    text-decoration: underline;
+}
+.login-form-1 a:hover ,
+.login-form-2 a:hover{
+    text-decoration: none;
+}
+.login-form-1 form a,
+.login-form-2 form a {
+    color: #7a7a7a;
+    text-decoration: none;
+}
+.login-form-1 form a:hover,
+.login-form-2 form a:hover {
+    text-decoration: underline;
+}
+
+
+

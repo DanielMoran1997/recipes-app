@@ -1,0 +1,12 @@
+.home-card{
+    background-color: rgba(168, 78, 78, 0.8);
+    width: auto;
+    height: auto;
+}
+
+.background{
+    background-image: url('https://st.depositphotos.com/2007501/4502/i/950/depositphotos_45028393-stock-photo-red-and-white-checkered-picnic.jpg');
+    background-size: cover;
+    height: auto;
+}
+

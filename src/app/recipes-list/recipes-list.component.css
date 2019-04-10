@@ -1,0 +1,48 @@
+
+
+.card{
+    background-image: url('https://st.depositphotos.com/2007501/4502/i/950/depositphotos_45028393-stock-photo-red-and-white-checkered-picnic.jpg');
+}
+
+.card-body{
+    width: auto;
+}
+
+.recipes {
+  background-color: rgb(100, 59, 59);
+  width: auto;
+  margin-left: auto;
+}
+
+h2, h4 {
+  color: aliceblue;
+}
+
+p {
+  color: rgb(240, 163, 22);
+}
+
+img {
+  float: left;
+  height: 100px;
+  border: 5px solid;
+}
+
+.food-card {
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(114, 51, 95);
+  }
+
+  .event-header-image {
+    background-image: url('https://www.grouphigh.com/wp-content/uploads/2015/06/amplify-blogger-outreach.jpg');
+    background-size: cover;
+  }
+
+  h1{
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    font-family: graffiti;
+}

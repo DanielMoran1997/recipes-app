@@ -1,0 +1,57 @@
+<body>
+<mat-card class="main-card">
+    <div class="login-form-1">
+      <mat-card class="card">
+        <form [formGroup]="form" (ngSubmit)="logIn()">
+        <div class="avatar">
+          <img src="https://spotlightmedia.com/wp-content/uploads/2015/07/ClientLogincol2.png" alt="Avatar">
+        </div>
+            <h2 class="text-center">Member Login</h2>   
+            <div class="form-group">
+              <input type="email" class="form-control" formControlName="email" name="email" placeholder="name" required="required">
+            </div>
+        <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password" required="required">
+            </div>        
+            <div class="form-group">
+                <button type="submit" (click)="logIn()" class="btn btn-primary btn-lg btn-block">Sign in</button>
+            </div>
+        <div class="clearfix">
+                <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                <a href="#" class="pull-right">Forgot Password?</a>
+            </div>
+        </form>
+      </mat-card>
+    </div>
+    
+        <div class="login-form-2">
+          <mat-card class="card">
+            <form>
+            <div class="avatar">
+              <img src="https://spotlightmedia.com/wp-content/uploads/2015/07/ClientLogincol2.png" alt="Avatar">
+            </div>
+                <h2 class="text-center">Register Account</h2> 
+                <div class="form-group">
+                    <input type="email" class="form-control" [(ngModel)]="email"  name="email" placeholder="email" required="required">
+                </div>  
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="Name" required="required">
+                </div>
+            <div class="form-group">
+                    <input type="password" [(ngModel)]="pwd" class="form-control" name="password" placeholder="Password" required="required">
+                </div>        
+                <div class="form-group">
+                    <button type="submit" (click)="register()" class="btn btn-primary btn-lg btn-block">Register</button>
+                </div>
+            <div class="clearfix">
+                    <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                </div>
+            </form>
+          </mat-card>
+      </div>
+      
+</mat-card>
+</body>
+
+    
+    
