@@ -1,7 +1,26 @@
+<mat-drawer-container autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+      <h3>Add Post</h3>
+      <div class="input-group mb-3">
+        <input type="text" name="title" id="title"  class="form-control" placeholder="Post title" [(ngModel)]='title'>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" name="message" id="message"  class="form-control" placeholder="Post message" [(ngModel)]='message'>
+      </div>
+      <div>
+        <button type="button" mat-raised-button color="black" (click)="addPost()">Submit event</button>
+      </div>
+  </mat-drawer>
+<button  [disabled]='isUnchanged' color="black" mat-raised-button (click)="drawer.toggle()">Filter</button>
+
 <mat-card class="background">
-    <mat-card class="home-card">
-        <div class="basic-container">
-            
+    <mat-card class="home-card" *ngFor="let post of posts">
+        <div class="basic-container" *ngIf="posts && posts.length">
+            <h1><a class="link" routerLink='{{ post.title }}'>{{post.title}}</a></h1>
+              <section>
+                <p>{{post.message}}</p>
+              </section>
+              
             
           </div>
     </mat-card>

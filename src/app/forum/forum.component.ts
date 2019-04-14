@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPosts } from './posts.model';
 import { PostsService } from '../posts.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-forum',
@@ -9,12 +10,16 @@ import { PostsService } from '../posts.service';
 })
 export class ForumComponent implements OnInit {
   errorMessage: string;
+  title: string;
+  message: string;
+  pressed
+
 
   posts: IPosts[] = [
     
   ];
 
-  constructor(private _postsService: PostsService) {
+  constructor(private _postsService: PostsService, private router: Router) {
     this.posts;
   }
   ngOnInit() {
@@ -25,4 +30,14 @@ export class ForumComponent implements OnInit {
       error => this.errorMessage = <any>error); 
   }
 
+  addPost(): void {
+    let posts:IPosts = {
+      title:this.title,
+      message:this.message
+    };
+    this._postsService.addPosts(posts);
+
+    this.pressed = 'disabled';
+
+}
 }

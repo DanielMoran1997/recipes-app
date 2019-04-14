@@ -19,7 +19,22 @@ describe('LoginRegistrationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create a form with 2 controls', () => {
+    expect(component.form.contains['email']).toBeTruthy();
+    expect(component.form.contains['password']).toBeTruthy();
+  });
+
+  it('should make the controls required', () => {
+    let control = component.form.get('email').toBeTruthy();
+    control.setValu('');
+    expect(control.valid).toBeFalsy();
+
+    expect(component.form.contains['password']).toBeTruthy();
+    control.setValu('');
+    expect(control.valid).toBeFalsy();
+  });
+
+  it('should create a user event', () => {
+    component.createUserEvent.subscribe()
   });
 });

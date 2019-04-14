@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { AuthService} from '../auth.service';
 import { Router} from '@angular/router';
+import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import {User} from '../login-registration/user.model';
 
 
 @Component({
@@ -14,9 +17,17 @@ export class LoginRegistrationComponent implements OnInit {
   pwd: string;
   name: string;
   description: string;
+  users: Observable<User>;
 
   errorMessage: string;
   form;
+
+  @Output()
+  creatingUserEvent = new EventEmitter<boolean>();
+
+  @Output()
+  createUserEvent = new EventEmitter<User>();
+
   constructor(private fb: FormBuilder, private myRoute: Router,
     private auth:AuthService) {
       this.form = fb.group({

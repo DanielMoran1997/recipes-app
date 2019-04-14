@@ -3,7 +3,7 @@
       <div class="basic-container">
           <h1>Meal Planner</h1>
              <h3>Breakfast</h3>
-                <p>sample</p>
+                <p></p>
              <h3>Dinner</h3>
                 <p>sample</p>
              <h3>Supper</h3>
@@ -11,4 +11,17 @@
         </div>
   </mat-card>
 </mat-card>
+
+<mat-card class="background">
+   <mat-card class="home-card" *ngFor="let post of posts">
+       <div class="basic-container" *ngIf="posts && posts.length">
+           <h1><a class="link" routerLink='{{ post.title }}'>{{post.title}}</a></h1>
+             <section>
+               <p>{{post.message}}</p>
+             </section>
+             
+           
+         </div>
+   </mat-card>
+ </mat-card>
 

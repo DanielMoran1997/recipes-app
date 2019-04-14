@@ -38,12 +38,33 @@ export class HomeComponent implements OnInit {
     {
       srcUrl: 'assets/img4.jpg',
       previewUrl: 'assets/img4.jpg',
+    },
+    {
+      srcUrl: 'assets/img5.jpg',
+      previewUrl: 'assets/img5.jpg',
+    },
+    {
+      srcUrl: 'assets/img6.jpg',
+      previewUrl: 'assets/img6.jpg',
+    },
+    {
+      srcUrl: 'assets/img7.jpg',
+      previewUrl: 'assets/img7.jpg',
     }
   ];
 
   recipesList() {
     this.router.navigate(['/recipe']);
   }
+
+  profilePage() {
+    this.router.navigate(['/profile']);
+  }
+
+  forum() {
+    this.router.navigate(['/forum']);
+  }
+
   userLoggedIn(): boolean {
     this.isLoggedIn = this.auth.isLoggedIn();
     return this.isLoggedIn

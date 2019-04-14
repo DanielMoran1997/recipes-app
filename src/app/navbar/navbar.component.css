@@ -2,7 +2,7 @@ button{
     margin: 5px;
     border: 2px solid rgb(179, 80, 80);
     font-family: graffiti;
-    font-size: 100%;
+    font-size: auto;
     color: rgb(24, 24, 24);
     text-align: center;
     display: block;
@@ -17,8 +17,48 @@ h1{
     float: none;
     
 }
+
+
+
 mat-toolbar{
-    font-family: graffiti;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: rgb(145, 85, 85);
     text-align: center;
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+  .active {
+      background-color: rgb(179, 80, 80);
+  }
+
+  @media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    div, mat-toolbar, ul {
+      width:100%;
+    }
 }

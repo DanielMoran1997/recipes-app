@@ -8,10 +8,11 @@ import { Observable } from 'rxjs';
 import { YummlyApiService} from '../services/yummlyAPI.service';
 import { Http, Response} from '@angular/http';
 import { map } from 'rxjs/operators';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import * as cors from 'cors';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { PARAMETERS } from '@angular/core/src/util/decorators';
 
 
 
@@ -46,7 +47,7 @@ export class RecipesListComponent implements OnInit {
   recipes: any;
   private q = this.q;
   body: string;
-  searchTerm: any;
+  searchTerm = 'potato';
   search: any;
 
   
@@ -62,10 +63,29 @@ export class RecipesListComponent implements OnInit {
 
   constructor(private http: HttpClient, private fb: FormBuilder, private route: ActivatedRoute
     ) {
+      this.getDataFromServer(this.searchTerm).
+      then(res => {
+        console.log('res: ', res);
+      });
+
     this.getData(name);
     this.getRecipes();
-    this.searchRecipes(name);
+   // this.searchRecipes(name);
+
+    
   }
+
+  getDataFromServer(searchTerm: string) {
+    const params = {
+      param1: searchTerm
+  }
+  const url = 'http://api.yummly.com/v1/api/recipes?_app_id=69d197c7&_app_key=3c1290be9cec73af81c117b022305399&q='
+
+    // { params: params } is the same as { params } 
+    // look for es6 object literal to read more
+    return this.http.get(url, { params }).toPromise();
+  
+}
 
   getData(id: string) {
     return this.http.get(this.ApiURL + `${id}` + this.URLAppendix)
@@ -78,28 +98,87 @@ export class RecipesListComponent implements OnInit {
     })
   }
 
- 
+  foodName = "";
+getFood() {
+  this.http.get('http://api.yummly.com/v1/api/recipes?_app_id=69d197c7&_app_key=3c1290be9cec73af81c117b022305399&q=' + this.foodName)
+  .subscribe(data =>{
+    console.log(data);
+    this.data = data;
+  })
+}
 
-  searchRecipes(searchTerm): Observable<any> {
-      const query = `${this.ApiURL}` + `${this.URLAppendix}` + `&q=${searchTerm}`;
-    
-      return this.http.get(query).pipe(
-        map(data => {
-          console.log(data);
-         this.data = data
-        }));
-
-
-  }
 
   
+ 
 
-  getSearchResults() {
-    this.searchRecipes(this.searchTerm).subscribe(search =>{
+  // searchRecipes(searchTerm: string): Observable<any> {
+
+  //     const query = `${this.ApiURL}` + `${this.URLAppendix}` + `&q=` + `${searchTerm}`;
+    
+  //     return this.http.get(this.ApiURL + this.URLAppendix);
+
+
+  // }
+
+  // getSearchResults() {
+  //   this.searchRecipes(this.searchTerm).subscribe(search =>{
+  //     console.log(this.search);
+  //     this.search = search;
+  //   })
+  // }
+
+  showBreakfasts(searchTerm): Observable<any> {
+    const query = `${this.ApiURL}` + `${this.URLAppendix}` + `&q=` + `${this.foodName}` + `&allowedCourse[]=course^course-Appetizers`;
+  
+    return this.http.get(query).pipe(
+      map(data => {
+        console.log(data);
+       this.data = data
+      }));
+}
+
+  breakfastResults() {
+    this.showBreakfasts(this.searchTerm).subscribe(search =>{
       console.log(this.search);
       this.search = search;
-    })
-  }
+  })
+}
+
+showMains(searchTerm): Observable<any> {
+  const query = `${this.ApiURL}` + `${this.URLAppendix}` + `&q=` + `${this.foodName}` + `&allowedCourse[]=course^course-Main+Dishes`;
+
+  return this.http.get(query).pipe(
+    map(data => {
+      console.log(data);
+     this.data = data
+    }));
+}
+
+mainsResults() {
+  this.showMains(this.searchTerm).subscribe(search =>{
+    console.log(this.search);
+    this.search = search;
+})
+}
+
+showDesserts(searchTerm): Observable<any> {
+  const query = `${this.ApiURL}` + `${this.URLAppendix}` + `&q=` + `${this.foodName}` + `&allowedCourse[]=course^course-Desserts`;
+
+  return this.http.get(query).pipe(
+    map(data => {
+      console.log(data);
+     this.data = data
+    }));
+}
+
+dessertsResults() {
+  this.showDesserts(this.searchTerm).subscribe(search =>{
+    console.log(this.search);
+    this.search = search;
+})
+}
+
+
 
 
 
@@ -114,7 +193,7 @@ export class RecipesListComponent implements OnInit {
 
 
     this.id = this.route.snapshot.paramMap.get('id');
-    this.searchTerm = this.route.snapshot.paramMap.get('searchTerm');
+    this.searchTerm = this.route.snapshot.paramMap.get('recipeName');
 
 
 

@@ -35,12 +35,15 @@ import { HomeComponent } from './home/home.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ForumComponent } from './forum/forum.component';
+import { PostsService } from './posts.service';
+import { ForumPostsComponent } from './forum-posts/forum-posts.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginRegistrationComponent},
   {path: 'recipe', component: RecipesListComponent, canActivate: [AuthGuard]},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'recipe/:id', component: RecipeDetailsComponent},
+  {path: 'forum/:title', component: ForumPostsComponent},
   {path: 'profile', component: ProfileComponent,canActivate: [AuthGuard]},
   {path: 'forum', component: ForumComponent,canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'login', canActivate: [AuthGuard]},
@@ -59,7 +62,8 @@ const routes: Routes = [
     HomeComponent,
     RecipeDetailsComponent,
     ProfileComponent,
-    ForumComponent
+    ForumComponent,
+    ForumPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +104,7 @@ const routes: Routes = [
 
 
   ],
-  providers: [AppComponent, IFood, AuthService, AuthGuard, NotificationService],
+  providers: [AppComponent, IFood, AuthService, AuthGuard, NotificationService, PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

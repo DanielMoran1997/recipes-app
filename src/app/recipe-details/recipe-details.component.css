@@ -11,6 +11,7 @@ h1 {
 
 img {
     border: 5px solid;
+    max-width: 100%;
 }
 
 

@@ -1,8 +1,22 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sligo Sounds - Events</title>
 
 
 <!--Main content feed-->
 <div class='card'>
+  <mat-card-actions>
+  <button mat-button style="color: red" (click)='breakfastResults()'>Appetizers</button>
+  <button mat-button style="color: rgb(0, 255, 21)" (click)='mainsResults()'>Mains</button>
+  <button mat-button style="color: rgb(0, 60, 255)" (click)='dessertsResults()'>Desserts</button>
+  <div class="wrap">
+      <div class="search">
+        <input type="search" id="searchTerm" name="searchTerm" [(ngModel)]=foodName placeholder="Search for a recipe.." >
+      </div>
+      <div class="control">
+        <button class="searchbutton" (click)="getFood()" type="submit">Search</button>
+      </div>
+    </div>
+</mat-card-actions>
 <div *ngFor='let matches of data.matches'>
 
 
@@ -17,24 +31,11 @@
 </div>
 <hr>
 
-<section class="section is-primary hero-image">
-    <div class="container">
-      <div class="column is-8 is-offset-2">
-        <form>
-          <div class="field is-grouped main-form">
-            <div class="control is-expanded">
-              <input type="search" id="searchTerm" name="searchTerm" placeholder="Search for a recipe.." >
-            </div>
-            <div class="control">
-              <button class="button is-info" (click)="getSearchResults()" type="submit">Search</button>
-            </div>
-  
-          </div>
+    
+          
         
-        </form>
-      </div>
-    </div>
+        
   
-  </section>
+  
   
   

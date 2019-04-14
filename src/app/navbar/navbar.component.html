@@ -1,11 +1,15 @@
 <mat-toolbar color="black">
   
-  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-  <button mat-button routerLinkActive="active" *ngIf="userLoggedOut()" routerLink="login">Log In</button>
-  <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="recipe">Recipes</button>
-  <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="home">Home</button>
-  <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="profile">Profile</button>
-  <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="forum">Forum</button>
+  <div fxFlex fxLayout fxLayoutAlign="end" >
+    <ul>
+  <li><a routerLinkActive="active" *ngIf="userLoggedOut()" routerLink="login">Log In</a></li>
+  <li><a routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="recipe">Recipes</a></li>
+  <li><a routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="home">Home</a></li>
+  <li><a routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="profile">Profile</a></li>
+  <li><a routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="forum">Forum</a></li>
+  <li><a routerLinkActive="active" *ngIf="userLoggedIn()" (click)='onLogout()'>Logout</a></li>
+
+</ul>
 
 
 
@@ -13,7 +17,6 @@
 
 
   <span style="flex:1 1 auto"></span>
-  <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" (click)='onLogout()'>Logout</button>
   
 
 

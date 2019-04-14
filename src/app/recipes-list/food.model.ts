@@ -3,7 +3,7 @@ export class IFood{
     name: string;
     description: string;
     image: string;
-    searchTerm: string;
+    searchTerm: string = "potato";
 
     
 }

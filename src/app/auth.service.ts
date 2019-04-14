@@ -4,15 +4,24 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { NotificationService } from './notification.service';
 import * as firebase from 'firebase/';
+import {User} from './login-registration/user.model';
+import {AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore'
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   
-  private user: Observable<firebase.User>;
   loggedInStatus: boolean = false;
   loggedOutStatus: boolean = false;
+  user$: Observable<firebase.User>;
+  user: Observable<User>;
+  userStatus: boolean = false;
+  username ="";
+
+  userCollection: AngularFirestoreCollection<User>;
 
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router, private notifier: NotificationService) {
     this.user = _firebaseAuth.authState;
