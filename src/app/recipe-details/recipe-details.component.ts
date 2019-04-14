@@ -32,9 +32,9 @@ export class RecipeDetailsComponent implements OnInit {
     ) {
   }
 
-  saveRecipe(recipe: IFood){
-    this.yummlyAPIService.attendEvent(recipe);
-  }
+  // saveRecipe(recipe: IFood){
+  //   this.yummlyAPIService.attendEvent(recipe);
+  // }
 
 
   
